@@ -9,9 +9,6 @@ import javax.inject.Inject
 
 class MovieRepositories @Inject constructor(private val apiServices: ApiServices) {
 
-//    private val _upcomingMovies = MutableLiveData<DataState<List<MovieResult>>>()
-//    val upcomingMovies: LiveData<DataState<List<MovieResult>>>
-//        get() = _upcomingMovies
 
     fun getUpcomingMovie() = Pager(
         config = PagingConfig(pageSize = 20, maxSize = 100),

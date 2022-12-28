@@ -16,8 +16,8 @@ class UpcomingAdapter : PagingDataAdapter<MovieResult, UpcomingAdapter.UpcomingV
 
     override fun onBindViewHolder(holder: UpcomingViewHolder, position: Int) {
         getItem(position).let {
-            holder.binding.movieName.text = it?.title
-            Glide.with(holder.binding.root.context).load(Util.posterUrlMake(it?.posterPath)).into(holder.binding.image)
+            Glide.with(holder.binding.root.context).load(Util.posterUrlMake(it?.posterPath))
+                .into(holder.binding.image)
 
         }
 
