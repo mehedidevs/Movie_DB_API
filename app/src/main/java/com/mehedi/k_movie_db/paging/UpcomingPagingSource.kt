@@ -8,7 +8,6 @@ import com.mehedi.k_movie_db.data.dto.MovieResult
 class UpcomingPagingSource(private val api: ApiServices) :
     PagingSource<Int, MovieResult>() {
 
-
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, MovieResult> {
 
         return try {
@@ -21,16 +20,10 @@ class UpcomingPagingSource(private val api: ApiServices) :
                 prevKey = if (position == 1) null else position - 1,
                 nextKey = if (position == response.totalPages) null else position + 1
             )
-
-
-
         } catch (e: Exception) {
             LoadResult.Error(e)
         }
-
-
     }
-
 
     override fun getRefreshKey(state: PagingState<Int, MovieResult>): Int? {
         return state.anchorPosition?.let {
@@ -53,8 +46,5 @@ class UpcomingPagingSource(private val api: ApiServices) :
 //        }
 //
 //        return null
-
-
     }
-
 }

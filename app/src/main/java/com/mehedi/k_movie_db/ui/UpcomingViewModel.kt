@@ -10,7 +10,5 @@ import javax.inject.Inject
 @HiltViewModel
 class UpcomingViewModel @Inject constructor(repositories: MovieRepositories) : ViewModel() {
 
-
-    val upcomingMovies= repositories.getUpcomingMovie().cachedIn(viewModelScope)
-
+    val upcomingMovies = repositories.getUpcomingMovie().cachedIn(viewModelScope)
 }

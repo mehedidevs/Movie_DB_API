@@ -9,7 +9,6 @@ import javax.inject.Inject
 
 class MovieRepositories @Inject constructor(private val apiServices: ApiServices) {
 
-
     fun getUpcomingMovie() = Pager(
         config = PagingConfig(pageSize = 20, maxSize = 100),
         pagingSourceFactory = { UpcomingPagingSource(apiServices) }

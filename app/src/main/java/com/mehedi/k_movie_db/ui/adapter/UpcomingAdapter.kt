@@ -16,12 +16,15 @@ class UpcomingAdapter : PagingDataAdapter<MovieResult, UpcomingAdapter.UpcomingV
 
     override fun onBindViewHolder(holder: UpcomingViewHolder, position: Int) {
         getItem(position).let {
-            Glide.with(holder.binding.root.context).load(Util.posterUrlMake(it?.posterPath))
+
+            Glide.with(holder.binding.root.context)
+                .load(Util.posterUrlMake(it?.posterPath))
                 .into(holder.binding.image)
 
+//            Glide.with(holder.binding.root.context)
+//                .load("${Constant.IMAGE_PATH}${it!!.posterPath}")
+//                .into(holder.binding.image)
         }
-
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UpcomingViewHolder {
@@ -30,9 +33,7 @@ class UpcomingAdapter : PagingDataAdapter<MovieResult, UpcomingAdapter.UpcomingV
         return UpcomingViewHolder(binding)
     }
 
-
     class UpcomingViewHolder(val binding: ItemMovieBinding) : RecyclerView.ViewHolder(binding.root)
-
 
     companion object {
         private val Comparator =
@@ -49,10 +50,6 @@ class UpcomingAdapter : PagingDataAdapter<MovieResult, UpcomingAdapter.UpcomingV
 
                     return oldItem == newItem
                 }
-
             }
-
     }
-
-
 }

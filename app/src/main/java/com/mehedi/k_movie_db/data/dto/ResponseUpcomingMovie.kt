@@ -1,6 +1,5 @@
 package com.mehedi.k_movie_db.data.dto
 
-
 import com.google.gson.annotations.SerializedName
 
 data class ResponseUpcomingMovie(

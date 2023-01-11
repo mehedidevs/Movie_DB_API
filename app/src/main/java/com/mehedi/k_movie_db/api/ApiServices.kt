@@ -1,9 +1,7 @@
 package com.mehedi.k_movie_db.api
 
-import com.mehedi.k_movie_db.data.dto.MovieResult
 import com.mehedi.k_movie_db.data.dto.ResponseUpcomingMovie
 import com.mehedi.k_movie_db.utils.Constant.Companion.API_KEY
-import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
