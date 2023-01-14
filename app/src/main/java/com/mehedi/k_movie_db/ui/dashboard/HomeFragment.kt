@@ -10,9 +10,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.paging.PagingDataAdapter
+import coil.load
+import com.bumptech.glide.Glide
+import com.example.k_movie_db.R
 import com.example.k_movie_db.databinding.FragmentHomeBinding
 import com.mehedi.k_movie_db.ui.UpcomingViewModel
 import com.mehedi.k_movie_db.ui.adapter.UpcomingAdapter
+import com.mehedi.k_movie_db.utils.Util
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -33,6 +37,10 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+        viewModel = ViewModelProvider(this)[UpcomingViewModel::class.java]
+
+        viewModel.latestMovieVM()
+
         return binding.root
     }
 
@@ -42,6 +50,7 @@ class HomeFragment : Fragment() {
         adapter = UpcomingAdapter()
 
         binding.rv.adapter = adapter
+        binding.latestMovieVP.adapter = adapter
 
         lifecycleScope.launch {
 
@@ -66,10 +75,20 @@ class HomeFragment : Fragment() {
                 }
         }
 
-        viewModel = ViewModelProvider(this)[UpcomingViewModel::class.java]
         viewModel.upcomingMovies.observe(requireActivity()) {
 
             adapter.submitData(lifecycle, it)
+        }
+
+        viewModel.latestMoviesVMLD.observe(viewLifecycleOwner) {
+
+            Glide.with(requireActivity()).load(Util.posterUrlMake(it.poster_path))
+                .placeholder(R.drawable.placeholder)
+                .into(binding.latestMovie)
+
+            //  binding.latestMovie.load(Util.posterUrlMake(it.poster_path))
+
+            Log.i("TAG", "onViewCreated: ${it.poster_path}")
         }
     }
 

@@ -8,7 +8,10 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class UpcomingViewModel @Inject constructor(repositories: MovieRepositories) : ViewModel() {
+class UpcomingViewModel @Inject constructor(private var repositories: MovieRepositories) :
+    ViewModel() {
 
     val upcomingMovies = repositories.getUpcomingMovie().cachedIn(viewModelScope)
+    val latestMoviesVMLD = repositories.latestMovie
+    fun latestMovieVM() = repositories.getLatestMovie()
 }
