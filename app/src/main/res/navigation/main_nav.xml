@@ -10,4 +10,18 @@
         android:name="com.mehedi.k_movie_db.ui.dashboard.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.k_movie_db.SaerchFragment"
+        android:label="fragment_saerch"
+        tools:layout="@layout/fragment_saerch" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.k_movie_db.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+
+
+
+
 </navigation>
