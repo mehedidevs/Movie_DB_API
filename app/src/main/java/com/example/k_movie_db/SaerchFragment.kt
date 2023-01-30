@@ -18,6 +18,9 @@ class SaerchFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentSaerchBinding.inflate(inflater, container, false)
+
+        binding.item1.setImage(R.drawable.kt)
+
         return binding.root
     }
 

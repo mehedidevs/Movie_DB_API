@@ -6,27 +6,35 @@
     android:layout_height="match_parent"
     tools:context="com.mehedi.k_movie_db.ui.dashboard.HomeFragment">
 
+
+    <com.ju.myui.RcvITem
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
     <ImageView
-        android:contentDescription="@string/app_name"
-        android:visibility="gone"
-        android:src="@drawable/placeholder"
         android:id="@+id/latestMovie"
         android:layout_width="match_parent"
         android:layout_height="250dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/placeholder"
+        android:visibility="gone"
         app:layout_constraintDimensionRatio="4:3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
-
     <androidx.viewpager2.widget.ViewPager2
-        android:contentDescription="@string/app_name"
-        android:visibility="visible"
-        android:src="@drawable/placeholder"
         android:id="@+id/latestMovieVP"
         android:layout_width="match_parent"
         android:layout_height="250dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/placeholder"
+        android:visibility="visible"
         app:layout_constraintDimensionRatio="4:3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,11 +42,11 @@
 
 
     <TextView
-        android:contentDescription="@string/app_name"
         android:id="@+id/upcomingTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
+        android:contentDescription="@string/app_name"
         android:text="Upcoming Movie"
         android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,10 +54,10 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:contentDescription="@string/app_name"
         android:id="@+id/rv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:contentDescription="@string/app_name"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"

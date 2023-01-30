@@ -10,12 +10,12 @@ plugins {
 
 android {
     namespace 'com.example.k_movie_db'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.example.k_movie_db"
-        minSdk 21
-        targetSdk 32
+        minSdk 24
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -111,6 +111,8 @@ dependencies {
 
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    implementation project(':myui')
 
 
 

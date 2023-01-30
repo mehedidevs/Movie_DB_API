@@ -1,4 +1,4 @@
-package com.example.k_movie_db.widgets
+package com.ju.myui
 
 import android.content.Context
 import android.util.AttributeSet
@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.example.k_movie_db.R
 
 class RcvITem : ConstraintLayout {
     private lateinit var mLayout: ConstraintLayout
@@ -35,7 +34,7 @@ class RcvITem : ConstraintLayout {
 
         LayoutInflater
             .from(context)
-            .inflate(R.layout.custom_item, this, true)
+            .inflate(R.layout.items, this, true)
 
         mLayout = findViewById(R.id.mLayout)
         image = findViewById(R.id.image)

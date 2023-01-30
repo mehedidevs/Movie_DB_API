@@ -3,6 +3,7 @@ package com.mehedi.k_movie_db.ui
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
+import androidx.navigation.ui.NavigationUI.setupWithNavController
 import com.example.k_movie_db.R
 import com.example.k_movie_db.databinding.ActivityMainBinding
 import com.mehedi.k_movie_db.utils.bottomNavSetKoro
@@ -25,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         toast(this, "kisu akta")
 
         navController = navControllerDe(R.id.fragmentContainerView)
-        // setupWithNavController(binding.bottomNaView, navController)
+        setupWithNavController(binding.bottomNaView, navController)
 
         // binding.bottomNaView.setupWithNavController(navController)
         binding.bottomNaView.bottomNavSetKoro(navController)

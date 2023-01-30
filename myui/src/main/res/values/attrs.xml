@@ -4,6 +4,4 @@
         <attr name="Ttext" format="string" />
         <attr name="Dtext" format="string" />
     </declare-styleable>
-
-
 </resources>
