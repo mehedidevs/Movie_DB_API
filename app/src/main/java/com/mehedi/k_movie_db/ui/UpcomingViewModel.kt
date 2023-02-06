@@ -12,6 +12,7 @@ class UpcomingViewModel @Inject constructor(private var repositories: MovieRepos
     ViewModel() {
 
     val upcomingMovies = repositories.getUpcomingMovie().cachedIn(viewModelScope)
+
     val latestMoviesVMLD = repositories.latestMovie
     fun latestMovieVM() = repositories.getLatestMovie()
 }

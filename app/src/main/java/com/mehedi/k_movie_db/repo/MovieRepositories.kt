@@ -1,5 +1,6 @@
 package com.mehedi.k_movie_db.repo
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.Pager
@@ -8,6 +9,7 @@ import androidx.paging.liveData
 import com.mehedi.k_movie_db.api.ApiServices
 import com.mehedi.k_movie_db.data.dto.latest.ResponseLatestMovieDTO
 import com.mehedi.k_movie_db.paging.UpcomingPagingSource
+import com.mehedi.k_movie_db.utils.NoInternetException
 import javax.inject.Inject
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -26,9 +28,17 @@ class MovieRepositories @Inject constructor(private val apiServices: ApiServices
     fun getLatestMovie() {
 
         GlobalScope.launch {
-            val response = apiServices.getLatestMovie()
-            if (response.isSuccessful) {
-                _latestMovie.postValue(response.body())
+
+            try {
+                val response = apiServices.getLatestMovie()
+                if (response.isSuccessful) {
+                    _latestMovie.postValue(response.body())
+                }
+            } catch (e: NoInternetException) {
+
+                Log.i("TAG", "getLatestMovie:${e.message}} ")
+            } catch (e: Exception) {
+                Log.i("TAG", " ${e.message} ")
             }
         }
     }
